@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Pop-up Example</title>
+    <style>
+        /* Add your header styles here */
+        header {
+            background-color: #4CAF50;
+            padding: 15px;
+            color: white;
+            text-align: center;
+        }
+
+        /* Add your modal styles here */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /* Add your button styles here */
+        .open-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .open-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Add your form styles here */
+        .modal-content {
+            text-align: center;
+        }
+
+        .modal-content form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        .modal-content label {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .modal-content input {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .modal-content button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .modal-content button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Your Website</h1>
+    <!-- Button to open the pop-up -->
+    <button class="open-button" onclick="openPopup()">Open Pop-up</button>
+</header>
+
+<!-- The Modal (pop-up) -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2>Enter Your Information</h2>
+        <form id="popupForm">
+            <label for="infoInput">Information:</label>
+            <input type="text" id="infoInput" required>
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+        <p id="buttonInfo"></p>
+    </div>
+</div>
+
+<script>
+    // Function to open the pop-up
+    function openPopup() {
+        // Display the modal
+        document.getElementById('myModal').style.display = 'block';
+    }
+
+    // Function to close the pop-up
+    function closePopup() {
+        // Hide the modal
+        document.getElementById('myModal').style.display = 'none';
+    }
+
+    // Function to submit the form
+    function submitForm() {
+        // Get user input
+        var userInput = document.getElementById('infoInput').value;
+
+        // Display the input in the pop-up
+        var buttonInfo = document.getElementById('buttonInfo');
+        buttonInfo.innerHTML = 'User Input: ' + userInput;
+
+        // Close the pop-up
+        closePopup();
+    }
+</script>
+
+</body>
+</html>
